@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Let's have a walk!</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+
+</head>
+<body>
+
+<video id="vidBgPg" autoplay muted="muted" loop>
+    <source src="http://ak3.picdn.net/shutterstock/videos/5713652/preview/stock-footage-coffee-break.mp4" type="video/mp4">
+    Your browser does not support HTML5 videos. Please update your browser.
+</video>
+
+<div id="wrap">
+
+	<div id="frame">
+
+		<div id="vidBg">
+			<!-- <video autoplay muted="muted" loop>
+	    		<source src="media/video2.mp4" type="video/mp4">
+	    		Your browser does not support HTML5 videos. Please update your browser.
+			</video> -->
+		</div>
+		<div id="mountains"></div>
+		<div id="houses"></div>
+		<div id="trees"></div>
+		<div id="grass"></div>
+		<div id="objects">
+
+			<div id="panel">
+				<div id="preHappen">
+					<p>How optimistic are you?</p>
+					<input type="range" name="howOpt" id="howOpt" min="0" max="102" value="50" step="1">
+					<p id="options">
+						<span id="span1">Not optimistic</span>
+	    				<span id="span2">Neutral</span>		
+	    				<span id="span3">Very optimistic</span>
+					</p>
+					<button id="butNext">Next</button>
+				</div>
+
+				<div id="happen">
+					<p>Ask a yes–no question and then click 'Answer'.</p>
+					<button id="fortune">Answer</button>
+					<p class="answer" id="result"></p>
+				</div>
+			</div>
+
+		</div>
+		<div id="characterSpeed"></div>
+		<img id="character" src="images/walk/7.png">
+		<div id="ground"></div>
+		<div id="depth"></div>
+		
+	</div>
+	
+</div>
+</body>
+</html>

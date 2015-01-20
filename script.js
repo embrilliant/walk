@@ -77,24 +77,31 @@ $(function(){
 			var grassPost = $("#grass").position().left;
 			var groundPost = $("#ground").position().left;
 
+			function moveForward() {
+				$("#vidBg").css({"left":"-=0.3"});
+				$("#mountains").css({"left":"-=1"});			
+				$("#houses").css({"left":"-=3"});				
+				$("#trees").css({"left":"-=5"});
+				$("#grass").css({"left":"-=6"});
+				$("#ground").css({"left":"-=7"});
+			}
+
+			function moveBackward() {
+				$("#vidBg").css({"left":"+=0.3"});
+				$("#mountains").css({"left":"+=1"});
+				$("#houses").css({"left":"+=3"});
+				$("#trees").css({"left":"+=5"});
+				$("#grass").css({"left":"+=6"});
+				$("#ground").css({"left":"+=7"});
+			}
+
 			if (housePost > -960 && housePost < 0) {
 
 				//switch starts
-
 				switch (event.which) {
 					
 					case 39:
-						$("#vidBg").css({"left":"-=0.3"});
-
-						$("#mountains").css({"left":"-=1"});
-				
-						$("#houses").css({"left":"-=3"});
-						
-						$("#trees").css({"left":"-=5"});
-
-						$("#grass").css({"left":"-=6"});
-
-						$("#ground").css({"left":"-=7"});
+						moveForward();
 
 						//character
 						$("#characterSpeed").css({"left":"-=1"});
@@ -111,17 +118,7 @@ $(function(){
 						break;
 
 					case 37:
-						$("#vidBg").css({"left":"+=0.3"});
-
-						$("#mountains").css({"left":"+=1"});
-				
-						$("#houses").css({"left":"+=3"});
-						
-						$("#trees").css({"left":"+=5"});
-
-						$("#grass").css({"left":"+=6"});
-
-						$("#ground").css({"left":"+=7"});
+						moveBackward();
 
 						//character
 						$("#characterSpeed").css({"left":"-=1"});
@@ -168,22 +165,11 @@ $(function(){
 						if (housePost == -960) {
 							$("#panel").fadeIn(200);
 						}
-
 						break;
 
 					case 37:
-						$("#vidBg").css({"left":"+=0.3"});
+						moveBackward();
 
-						$("#mountains").css({"left":"+=1"});
-				
-						$("#houses").css({"left":"+=3"});
-						
-						$("#trees").css({"left":"+=5"});
-
-						$("#grass").css({"left":"+=6"});
-
-						$("#ground").css({"left":"+=7"});
-						
 						//character
 						$("#characterSpeed").css({"left":"-=1"});
 						// image bunch loop
@@ -198,7 +184,6 @@ $(function(){
 						//end of character
 
 						$("#panel").stop().fadeOut();
-
 						break;
 
 					case 38:
@@ -210,19 +195,7 @@ $(function(){
 
 				switch (event.which) {	
 					case 39:
-						$("#vidBg").css({"left":"-=0.3"});
-
-						$("#vidBg").css({"left":"-=0.3"});
-
-						$("#mountains").css({"left":"-=1"});
-				
-						$("#houses").css({"left":"-=3"});
-						
-						$("#trees").css({"left":"-=5"});
-
-						$("#grass").css({"left":"-=6"});
-
-						$("#ground").css({"left":"-=7"});
+						moveForward();
 						
 						//character
 						$("#characterSpeed").css({"left":"-=1"});

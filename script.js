@@ -9,8 +9,13 @@ $(function(){
 
 		//for character
 		// var cSKey = $("#characterSpeed").css({"left":"-=1"});
-		var cSPost = $("#characterSpeed").position().left;
-		var distance = 24;
+		var cSPost = $("#characterSpeed").position().left;		
+		// Changes: adding loop 21Jan2015
+		var gifImgs = [8, 1, 2, 3, 4, 5, 6, 7];
+		var numOfImgs = gifImgs.length;
+		var charSpeed = -3;
+		var distance = numOfImgs * charSpeed;
+		//end of Changes
 		var changeMod = cSPost % distance;
 		//end of for character
 
@@ -26,68 +31,38 @@ $(function(){
 					$("#character").css({"left":"+=4"});
 					//character
 					$("#characterSpeed").css({"left":"-=1"});
-					if (changeMod== -0) {
-						$("#character").attr("src","images/walk/8.png");
-					} 
-					if (changeMod== -3) {
-						$("#character").attr("src","images/walk/1.png");
-					} 
-					if (changeMod== -6) {
-						$("#character").attr("src","images/walk/2.png");
+					// image bunch loop
+					var i;
+					for (i = 0; i < numOfImgs; i++) {
+						var remainN = charSpeed * i;
+						if (changeMod == remainN) {
+							$("#character").attr("src","images/walk/"+gifImgs[i]+".png");
+						}
 					}
-					if (changeMod== -9) {				
-						$("#character").attr("src","images/walk/3.png");
-					}
-					if (changeMod== -12) {				
-						$("#character").attr("src","images/walk/4.png");
-					}
-					if (changeMod== -15) {				
-						$("#character").attr("src","images/walk/5.png");
-					}
-					if (changeMod== -18) {				
-						$("#character").attr("src","images/walk/6.png");
-					}
-					if (changeMod== -21) {				
-							$("#character").attr("src","images/walk/7.png");
-					}
+					// image bunch loop ends
 					//end of character
-
 					break;
+
 				case 37:
 					$("#character").css({"left":"-=4"});
 					//character animation
 					$("#characterSpeed").css({"left":"-=1"});
-					if (changeMod== -0) {
-						$("#character").attr("src","images/walk/8fl.png");
-					} 
-					if (changeMod== -3) {
-						$("#character").attr("src","images/walk/1fl.png");
-					} 
-					if (changeMod== -6) {
-						$("#character").attr("src","images/walk/2fl.png");
+					// image bunch loop
+					var i;
+					for (i = 0; i < numOfImgs; i++) {
+						var remainN = charSpeed * i;
+						if (changeMod == remainN) {
+							$("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
+						}
 					}
-					if (changeMod== -9) {				
-						$("#character").attr("src","images/walk/3fl.png");
-					}
-					if (changeMod== -12) {				
-						$("#character").attr("src","images/walk/4fl.png");
-					}
-					if (changeMod== -15) {				
-						$("#character").attr("src","images/walk/5fl.png");
-					}
-					if (changeMod== -18) {				
-						$("#character").attr("src","images/walk/6fl.png");
-					}
-					if (changeMod== -21) {				
-						$("#character").attr("src","images/walk/7fl.png");
-					}
-					//end of character
+					// image bunch loop ends
+					//end of character		
 					break;
 
 				case 38:
 					$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
-
 					break;
+				
 				default: return; // exit this handler for other keys
 			}
 			event.preventDefault(); // prevent the default action (scroll / move caret)
@@ -123,32 +98,16 @@ $(function(){
 
 						//character
 						$("#characterSpeed").css({"left":"-=1"});
-						if (changeMod== -0) {
-							$("#character").attr("src","images/walk/8.png");
-						} 
-						if (changeMod== -3) {
-							$("#character").attr("src","images/walk/1.png");
-						} 
-						if (changeMod== -6) {
-							$("#character").attr("src","images/walk/2.png");
+						// image bunch loop
+						var i;
+						for (i = 0; i < numOfImgs; i++) {
+							var remainN = charSpeed * i;
+							if (changeMod == remainN) {
+								$("#character").attr("src","images/walk/"+gifImgs[i]+".png");
+							}
 						}
-						if (changeMod== -9) {				
-							$("#character").attr("src","images/walk/3.png");
-						}
-						if (changeMod== -12) {				
-							$("#character").attr("src","images/walk/4.png");
-						}
-						if (changeMod== -15) {				
-							$("#character").attr("src","images/walk/5.png");
-						}
-						if (changeMod== -18) {				
-							$("#character").attr("src","images/walk/6.png");
-						}
-						if (changeMod== -21) {				
-							$("#character").attr("src","images/walk/7.png");
-						}
+						// image bunch loop ends
 						//end of character
-
 						break;
 
 					case 37:
@@ -166,38 +125,22 @@ $(function(){
 
 						//character
 						$("#characterSpeed").css({"left":"-=1"});
-						if (changeMod== -0) {
-							$("#character").attr("src","images/walk/8fl.png");
-						} 
-						if (changeMod== -3) {
-							$("#character").attr("src","images/walk/1fl.png");
-						} 
-						if (changeMod== -6) {
-							$("#character").attr("src","images/walk/2fl.png");
+						// image bunch loop
+						var i;
+						for (i = 0; i < numOfImgs; i++) {
+							var remainN = charSpeed * i;
+							if (changeMod == remainN) {
+								$("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
+							}
 						}
-						if (changeMod== -9) {				
-							$("#character").attr("src","images/walk/3fl.png");
-						}
-						if (changeMod== -12) {				
-							$("#character").attr("src","images/walk/4fl.png");
-						}
-						if (changeMod== -15) {				
-							$("#character").attr("src","images/walk/5fl.png");
-						}
-						if (changeMod== -18) {				
-							$("#character").attr("src","images/walk/6fl.png");
-						}
-						if (changeMod== -21) {				
-							$("#character").attr("src","images/walk/7fl.png");
-						}
+						// image bunch loop ends
 						//end of character
-
 						break;
 
 					case 38:
 						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
-
 						break;
+					
 					default: return; // exit this handler for other keys
 				}
 				event.preventDefault(); // prevent the default action (scroll / move caret)
@@ -243,30 +186,15 @@ $(function(){
 						
 						//character
 						$("#characterSpeed").css({"left":"-=1"});
-						if (changeMod== -0) {
-							$("#character").attr("src","images/walk/8fl.png");
-						} 
-						if (changeMod== -3) {
-							$("#character").attr("src","images/walk/1fl.png");
-						} 
-						if (changeMod== -6) {
-							$("#character").attr("src","images/walk/2fl.png");
+						// image bunch loop
+						var i;
+						for (i = 0; i < numOfImgs; i++) {
+							var remainN = charSpeed * i;
+							if (changeMod == remainN) {
+								$("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
+							}
 						}
-						if (changeMod== -9) {				
-							$("#character").attr("src","images/walk/3fl.png");
-						}
-						if (changeMod== -12) {				
-							$("#character").attr("src","images/walk/4fl.png");
-						}
-						if (changeMod== -15) {				
-							$("#character").attr("src","images/walk/5fl.png");
-						}
-						if (changeMod== -18) {				
-							$("#character").attr("src","images/walk/6fl.png");
-						}
-						if (changeMod== -21) {				
-							$("#character").attr("src","images/walk/7fl.png");
-						}
+						// image bunch loop ends
 						//end of character
 
 						$("#panel").stop().fadeOut();
@@ -275,7 +203,6 @@ $(function(){
 
 					case 38:
 						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
-
 						break;
 
 				}
@@ -299,32 +226,16 @@ $(function(){
 						
 						//character
 						$("#characterSpeed").css({"left":"-=1"});
-						if (changeMod== -0) {
-							$("#character").attr("src","images/walk/8.png");
-						} 
-						if (changeMod== -3) {
-							$("#character").attr("src","images/walk/1.png");
-						} 
-						if (changeMod== -6) {
-							$("#character").attr("src","images/walk/2.png");
+						// image bunch loop
+						var i;
+						for (i = 0; i < numOfImgs; i++) {
+							var remainN = charSpeed * i;
+							if (changeMod == remainN) {
+								$("#character").attr("src","images/walk/"+gifImgs[i]+".png");
+							}
 						}
-						if (changeMod== -9) {				
-							$("#character").attr("src","images/walk/3.png");
-						}
-						if (changeMod== -12) {				
-							$("#character").attr("src","images/walk/4.png");
-						}
-						if (changeMod== -15) {				
-							$("#character").attr("src","images/walk/5.png");
-						}
-						if (changeMod== -18) {				
-							$("#character").attr("src","images/walk/6.png");
-						}
-						if (changeMod== -21) {				
-							$("#character").attr("src","images/walk/7.png");
-						}
+						// image bunch loop ends
 						//end of character
-
 						break;
 
 					case 37:
@@ -348,38 +259,22 @@ $(function(){
 						$("#character").css({"left":"-=4"});
 						//character animation
 						$("#characterSpeed").css({"left":"-=1"});
-						if (changeMod== -0) {
-							$("#character").attr("src","images/walk/8fl.png");
-						} 
-						if (changeMod== -3) {
-							$("#character").attr("src","images/walk/1fl.png");
-						} 
-						if (changeMod== -6) {
-							$("#character").attr("src","images/walk/2fl.png");
+						// image bunch loop
+						var i;
+						for (i = 0; i < numOfImgs; i++) {
+							var remainN = charSpeed * i;
+							if (changeMod == remainN) {
+								$("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
+							}
 						}
-						if (changeMod== -9) {				
-							$("#character").attr("src","images/walk/3fl.png");
-						}
-						if (changeMod== -12) {				
-							$("#character").attr("src","images/walk/4fl.png");
-						}
-						if (changeMod== -15) {				
-							$("#character").attr("src","images/walk/5fl.png");
-						}
-						if (changeMod== -18) {				
-							$("#character").attr("src","images/walk/6fl.png");
-						}
-						if (changeMod== -21) {				
-							$("#character").attr("src","images/walk/7fl.png");
-						}
+						// image bunch loop ends
 						//end of character
-
 						break;
 
 					case 38:
 						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
-
 						break;
+						
 				}
 			} 
 		}

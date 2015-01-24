@@ -38,6 +38,14 @@ $(function(){
 			}
 		}
 
+		function characterJump() {
+			$("#character").stop().animate({bottom:"105px"}, 80, fallDown);
+		}
+
+		function fallDown() {
+			$("#character").stop(true, true).animate({bottom:"50px"}, 75);
+		}
+
 		var characterPost = $("#character").position().left;
 		
 		if (characterPost <= -125 || characterPost < -64) {
@@ -57,7 +65,7 @@ $(function(){
 					break;
 
 				case 38:
-					$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
+					characterJump();
 					break;
 
 			}
@@ -106,7 +114,7 @@ $(function(){
 						break;
 
 					case 38:
-						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
+						characterJump();
 						break;
 	
 				}
@@ -143,7 +151,7 @@ $(function(){
 						break;
 
 					case 38:
-						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
+						characterJump();
 						break;
 
 				}
@@ -175,7 +183,7 @@ $(function(){
 						break;
 
 					case 38:
-						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
+						characterJump();
 						break;
 						
 				}
@@ -184,10 +192,6 @@ $(function(){
 		console.log(characterPost, housePost, groundPost, mountPost, changeMod, vidBgPost);
 		
 	} //end of sthMove function
-
-	function fallDown() {
-		$("#character").stop(true, true).animate({bottom:"50px"}, 75);
-	}
 	
 	//fortune panel starts
 	var howOpt;

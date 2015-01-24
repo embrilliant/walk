@@ -13,7 +13,7 @@ body {
 	padding: 0;
 }
 
-video#vidBgPg {
+#vidBgPg {
 	position: fixed;
 	bottom: 0px;
 	right: 0px;
@@ -33,28 +33,32 @@ video#vidBgPg {
 	height: 700px;*/
 }
 
+#frame, #vidBg, #mountains, #houses, #trees, #objects, #depth {
+	height: 540px;
+}
+
+#frame, #vidBg, #mountains, #houses, #trees, #grass, #objects, #charAnime, #character, #ground, #depth {
+	position: absolute;
+}
+
 #frame {
 	width: 960px;
-	height: 540px;
 	border: 15px solid rgba(255, 255, 255, 0.6);
 	/*background: linear-gradient(to bottom, rgba(186, 243, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 78%);*/
 	/*box-shadow: 0px 0px 20px 0px rgba(60, 60, 60, 0.4);*/
 	top: 10%;
-	position: absolute;
 	overflow: hidden;
 }
 
 #vidBg {
 	width: 1056px;
-	height: 540px;
 	z-index: 0;
 	left: 0;
-	position: absolute;
 	overflow: hidden;
 }
 
 	#vidBg video {
-		position: absolute;
+		position: inherit;
 		top: -15px;
 		width: 100%;
 		height: auto;
@@ -62,31 +66,25 @@ video#vidBgPg {
 
 #mountains {
 	width: 1920px;
-	height: 540px;
 	background-image: url(images/mountain.png);
 	left: -91px;
-	position: absolute;
 	z-index: 1;
 }
 
 #houses {
 	width: 1920px;
-	height: 540px;
 	background-image: url(images/houses.png);
 	background-position: 0px -50px;
 	z-index: 2;
 	left: 0;
-	position: absolute;
 }
 
 #trees {
 	width: 2560px;
-	height: 540px;
 	background-image: url(images/trees2.png);
 	background-position: 0px -50px;
 	z-index: 3;
 	left: 0;
-	position: absolute;
 }
 
 #grass {
@@ -97,28 +95,23 @@ video#vidBgPg {
 	background-position:left bottom;
 	z-index: 4;
 	left: 0;
-	position: absolute;
 }
 
 #objects {
 	width: 960px;
-	height: 540px;
 	top: 0;
 	left: 0;
 	z-index: 11;
-	position: absolute;
 }
 
 #charAnime {
 	left: 0;
-	position: absolute;
 }
 
-img#character {
+#character {
 	bottom: 50px;
 	left: -125px;
 	z-index: 5;
-	position: absolute;
 }
 
 #ground {
@@ -128,15 +121,12 @@ img#character {
 	bottom: 0;
 	left: 0;
 	z-index: 5;
-	position: absolute;
 }
 
 #depth {
 	width: 960px;
-	height: 540px;
 	box-shadow: 0px 0px 26px -2px rgba(60, 60, 60, 0.7) inset;
 	z-index: 10;
-	position: absolute;
 }
 
 /* fortune panel */
@@ -172,7 +162,7 @@ img#character {
 	margin-bottom: 0;
 }
 
-#panel div#preHappen {
+#preHappen {
 	background: linear-gradient(125deg, rgba(249, 242, 249, 0.85) 0%, rgba(252, 236, 252, 0.85) 8%, rgba(253, 137, 215, 0.8) 100%);
 	display: block;
 	z-index: 2;
@@ -183,7 +173,7 @@ input[type="range"] {
     width: 90%;
 }
 
-p#options {
+#options {
 	width: 100%;
 	font-size: 0.8em;
 	color: #505050;
@@ -191,17 +181,17 @@ p#options {
 	margin-bottom: 40px;
 }
 
-span#span1 {
+#span1 {
 	float: left;
 	width: 33.33%;
 	text-align: left;
 }
 
-span#span2 {
+#span2 {
 	text-align: center;
 }
 
-span#span3 {
+#span3 {
 	float: right;
 	width: 33.33%;
 	text-align: right;
@@ -228,13 +218,10 @@ span#span3 {
 		box-shadow: 0.5px 0.5px 1px rgba(20, 20, 20, 0.5);
 	}
 
-#happen button#fortune {
+#fortune {
 	margin-top: 30px; 
 }
 
-#panel div#happen {
+#happen {
 	display: none;
 }
-
-
-

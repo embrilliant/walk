@@ -162,7 +162,7 @@ body {
 	margin-bottom: 0;
 }
 
-#preHappen {
+div#preHappen {
 	background: linear-gradient(125deg, rgba(249, 242, 249, 0.85) 0%, rgba(252, 236, 252, 0.85) 8%, rgba(253, 137, 215, 0.8) 100%);
 	display: block;
 	z-index: 2;

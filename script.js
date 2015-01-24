@@ -8,12 +8,12 @@ $(function(){
 	function sthMove(event) {
 
 		//for character
-		// var cSKey = $("#characterSpeed").css({"left":"-=1"});
-		var cSPost = $("#characterSpeed").position().left;		
+		// var cSKey = $("#charAnime").css({"left":"-=1"});
+		var cSPost = $("#charAnime").position().left;		
 		// Changes: adding loop 21Jan2015
 		var gifImgs = [8, 1, 2, 3, 4, 5, 6, 7];
 		var numOfImgs = gifImgs.length;
-		var charSpeed = -3;
+		var charSpeed = 3;
 		var distance = numOfImgs * charSpeed;
 		//end of Changes
 		var changeMod = cSPost % distance;
@@ -30,7 +30,7 @@ $(function(){
 				case 39:
 					$("#character").css({"left":"+=4"});
 					//character
-					$("#characterSpeed").css({"left":"-=1"});
+					$("#charAnime").css({"left":"+=1"});
 					// image bunch loop
 					var i;
 					for (i = 0; i < numOfImgs; i++) {
@@ -46,7 +46,7 @@ $(function(){
 				case 37:
 					$("#character").css({"left":"-=4"});
 					//character animation
-					$("#characterSpeed").css({"left":"-=1"});
+					$("#charAnime").css({"left":"+=1"});
 					// image bunch loop
 					var i;
 					for (i = 0; i < numOfImgs; i++) {
@@ -104,7 +104,7 @@ $(function(){
 						moveForward();
 
 						//character
-						$("#characterSpeed").css({"left":"-=1"});
+						$("#charAnime").css({"left":"+=1"});
 						// image bunch loop
 						var i;
 						for (i = 0; i < numOfImgs; i++) {
@@ -121,7 +121,7 @@ $(function(){
 						moveBackward();
 
 						//character
-						$("#characterSpeed").css({"left":"-=1"});
+						$("#charAnime").css({"left":"+=1"});
 						// image bunch loop
 						var i;
 						for (i = 0; i < numOfImgs; i++) {
@@ -171,7 +171,7 @@ $(function(){
 						moveBackward();
 
 						//character
-						$("#characterSpeed").css({"left":"-=1"});
+						$("#charAnime").css({"left":"+=1"});
 						// image bunch loop
 						var i;
 						for (i = 0; i < numOfImgs; i++) {
@@ -198,7 +198,7 @@ $(function(){
 						moveForward();
 						
 						//character
-						$("#characterSpeed").css({"left":"-=1"});
+						$("#charAnime").css({"left":"+=1"});
 						// image bunch loop
 						var i;
 						for (i = 0; i < numOfImgs; i++) {
@@ -231,7 +231,7 @@ $(function(){
 
 						$("#character").css({"left":"-=4"});
 						//character animation
-						$("#characterSpeed").css({"left":"-=1"});
+						$("#charAnime").css({"left":"+=1"});
 						// image bunch loop
 						var i;
 						for (i = 0; i < numOfImgs; i++) {

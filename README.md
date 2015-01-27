@@ -1,4 +1,5 @@
-# walk
+# Let's have a walk!
 
-Press arrow keys on your keyboard.
-# walk
+Press the arrow keys on your keyboard.
+
+An interactive parallactic frame with a fortune-teller at the end. 

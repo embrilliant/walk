@@ -51,6 +51,8 @@ body {
 }
 
 #vidBg {
+	background: rgba(212, 255, 224, 0.65);
+  	background: linear-gradient(to bottom, rgba(164,234,184,0.0) 0%,rgba(255,255,255,0.85) 54%);
 	width: 1056px;
 	z-index: 0;
 	left: 0;
@@ -141,6 +143,7 @@ body {
 	border: 3px solid rgba(163, 138, 102, 0.8);
 	box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.7), 0px 0px 4px 1px rgba(0, 0, 0, 0.66) inset;
 	border-radius: 8px;
+	background-color: rgba(255, 236, 213, 0.85);
 	background: linear-gradient(135deg, rgba(255, 253, 224, 0.85) 0%, rgba(255, 240, 198, 0.85) 100%);
 	color: #5e4b33;
 	font-family: Arial, Helvetica, sans-serif;
@@ -163,6 +166,7 @@ body {
 }
 
 div#preHappen {
+	background-color: rgba(240, 208, 233, 0.85);
 	background: linear-gradient(125deg, rgba(249, 242, 249, 0.85) 0%, rgba(252, 236, 252, 0.85) 8%, rgba(253, 137, 215, 0.8) 100%);
 	display: block;
 	z-index: 2;

@@ -111,6 +111,11 @@ body {
 }
 
 #character {
+	background-image:url("images/walk/bChar.png");
+    background-repeat:no-repeat;
+    background-position: 0px;
+	width: 125px;
+	height: 188px;
 	bottom: 50px;
 	left: -125px;
 	z-index: 5;

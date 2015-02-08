@@ -139,7 +139,8 @@ $(function(){
 
 						$("#ground").css({"left":"-2240"});
 						//character
-						$("#character").attr("src","images/walk/7.png");
+						// $("#character").attr("src","images/walk/7.png");
+						$("#character").css({"background-position":"-750px"});
 
 						if (housePost == -960) {
 							$("#panel").fadeIn(200);

@@ -7,66 +7,72 @@ $(function(){
 
 	function sthMove(event) {
 
-		//for character
-		// var cSKey = $("#charAnime").css({"left":"-=1"});
+		//vars for character animation
 		var cSPost = $("#charAnime").position().left;		
-		// Changes: adding loop 21Jan2015
-		var gifImgs = [8, 1, 2, 3, 4, 5, 6, 7];
-		var numOfImgs = gifImgs.length;
+		// var gifImgs = [8, 1, 2, 3, 4, 5, 6, 7];
+		var imgsF = [-875, 0, -125, -250, -375, -500, -625, -750];
+		var imgsB = [-1875, -1000, -1125, -1250, -1375, -1500, -1625, -1750];
+		var numOfImgs = imgsF.length;
 		var charSpeed = 3;
 		var distance = numOfImgs * charSpeed;
-		//end of Changes
 		var changeMod = cSPost % distance;
-		//end of for character
+		//end of vars for character animation
+
+		function characterFaceForward() {		
+			$("#charAnime").css({"left":"+=1"});
+			var i;
+			for (i = 0; i < numOfImgs; i++) {
+				var remainN = charSpeed * i;
+				if (changeMod == remainN) {
+					// $("#character").attr("src","images/walk/"+gifImgs[i]+".png");
+					$("#character").css({"background-position":imgsF[i]+"px"});
+				}
+			}
+		}
+
+		function characterFaceBack() {			
+			$("#charAnime").css({"left":"+=1"});
+			var i;
+			for (i = 0; i < numOfImgs; i++) {
+				var remainN = charSpeed * i;
+				if (changeMod == remainN) {
+					// $("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
+					$("#character").css({"background-position":imgsB[i]+"px"});
+				}
+			}
+		}
+
+		function characterJump() {
+			$("#character").stop().animate({bottom:"105px"}, 80, fallDown);
+		}
+
+		function fallDown() {
+			$("#character").stop(true, true).animate({bottom:"50px"}, 75);
+		}
 
 		var characterPost = $("#character").position().left;
 		
 		if (characterPost <= -125 || characterPost < -64) {
 			$("#character").css({"left":"-64px"});
 		} else if (characterPost >= -64 && characterPost < 400) {
-			//switch starts
+			
 			switch (event.which) {
 					
 				case 39:
 					$("#character").css({"left":"+=4"});
-					//character
-					$("#charAnime").css({"left":"+=1"});
-					// image bunch loop
-					var i;
-					for (i = 0; i < numOfImgs; i++) {
-						var remainN = charSpeed * i;
-						if (changeMod == remainN) {
-							$("#character").attr("src","images/walk/"+gifImgs[i]+".png");
-						}
-					}
-					// image bunch loop ends
-					//end of character
+					characterFaceForward();
 					break;
 
 				case 37:
 					$("#character").css({"left":"-=4"});
-					//character animation
-					$("#charAnime").css({"left":"+=1"});
-					// image bunch loop
-					var i;
-					for (i = 0; i < numOfImgs; i++) {
-						var remainN = charSpeed * i;
-						if (changeMod == remainN) {
-							$("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
-						}
-					}
-					// image bunch loop ends
-					//end of character		
+					characterFaceBack();		
 					break;
 
 				case 38:
-					$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
+					characterJump();
 					break;
-				
-				default: return; // exit this handler for other keys
+
 			}
-			event.preventDefault(); // prevent the default action (scroll / move caret)
-			//switch ends
 
 		} else {
 
@@ -86,7 +92,7 @@ $(function(){
 				$("#ground").css({"left":"-=7"});
 			}
 
-			function moveBackward() {
+			function moveBack() {
 				$("#vidBg").css({"left":"+=0.3"});
 				$("#mountains").css({"left":"+=1"});
 				$("#houses").css({"left":"+=3"});
@@ -97,52 +103,25 @@ $(function(){
 
 			if (housePost > -960 && housePost < 0) {
 
-				//switch starts
 				switch (event.which) {
 					
 					case 39:
 						moveForward();
 
-						//character
-						$("#charAnime").css({"left":"+=1"});
-						// image bunch loop
-						var i;
-						for (i = 0; i < numOfImgs; i++) {
-							var remainN = charSpeed * i;
-							if (changeMod == remainN) {
-								$("#character").attr("src","images/walk/"+gifImgs[i]+".png");
-							}
-						}
-						// image bunch loop ends
-						//end of character
+						characterFaceForward();
 						break;
 
 					case 37:
-						moveBackward();
+						moveBack();
 
-						//character
-						$("#charAnime").css({"left":"+=1"});
-						// image bunch loop
-						var i;
-						for (i = 0; i < numOfImgs; i++) {
-							var remainN = charSpeed * i;
-							if (changeMod == remainN) {
-								$("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
-							}
-						}
-						// image bunch loop ends
-						//end of character
+						characterFaceBack();
 						break;
 
 					case 38:
-						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
+						characterJump();
 						break;
-					
-					default: return; // exit this handler for other keys
+	
 				}
-				event.preventDefault(); // prevent the default action (scroll / move caret)
-
-				//switch ends
 
 			} else if (housePost <= -960) {
 
@@ -168,26 +147,15 @@ $(function(){
 						break;
 
 					case 37:
-						moveBackward();
+						moveBack();
 
-						//character
-						$("#charAnime").css({"left":"+=1"});
-						// image bunch loop
-						var i;
-						for (i = 0; i < numOfImgs; i++) {
-							var remainN = charSpeed * i;
-							if (changeMod == remainN) {
-								$("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
-							}
-						}
-						// image bunch loop ends
-						//end of character
+						characterFaceBack();
 
 						$("#panel").stop().fadeOut();
 						break;
 
 					case 38:
-						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
+						characterJump();
 						break;
 
 				}
@@ -197,55 +165,29 @@ $(function(){
 					case 39:
 						moveForward();
 						
-						//character
-						$("#charAnime").css({"left":"+=1"});
-						// image bunch loop
-						var i;
-						for (i = 0; i < numOfImgs; i++) {
-							var remainN = charSpeed * i;
-							if (changeMod == remainN) {
-								$("#character").attr("src","images/walk/"+gifImgs[i]+".png");
-							}
-						}
-						// image bunch loop ends
-						//end of character
+						characterFaceForward();
 						break;
 
 					case 37:
 						$("#vidBg").css({"left":"0"});
 
-						// mountPost = -91;
 						$("#mountains").css({"left":"-91"});
 
-						// housePost = 0;
 						$("#houses").css({"left":"0"});
 								
-						// treePost = 0;
 						$("#trees").css({"left":"0"});
 
-						// grassPost = 0;
 						$("#grass").css({"left":"0"});
 
-						// groundPost = 0;
 						$("#ground").css({"left":"0"});
 
 						$("#character").css({"left":"-=4"});
-						//character animation
-						$("#charAnime").css({"left":"+=1"});
-						// image bunch loop
-						var i;
-						for (i = 0; i < numOfImgs; i++) {
-							var remainN = charSpeed * i;
-							if (changeMod == remainN) {
-								$("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
-							}
-						}
-						// image bunch loop ends
-						//end of character
+						
+						characterFaceBack();
 						break;
 
 					case 38:
-						$("#character").stop().animate({bottom:"105px"}, 75, fallDown);
+						characterJump();
 						break;
 						
 				}
@@ -254,16 +196,6 @@ $(function(){
 		console.log(characterPost, housePost, groundPost, mountPost, changeMod, vidBgPost);
 		
 	} //end of sthMove function
-
-	/* $(window).keyup(function() {
-
-		$("#character").stop().animate({bottom:"50px"});
-
-	}); */
-
-	function fallDown() {
-		$("#character").stop(true, true).animate({bottom:"50px"}, 75);
-	}
 	
 	//fortune panel starts
 	var howOpt;

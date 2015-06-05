@@ -1,7 +1,8 @@
 $(function(){
 
 
-	var housePost;
+	var housePost,
+		upKeyPressed = false;
 
 	$(window).keydown(sthMove);
 
@@ -9,13 +10,13 @@ $(function(){
 
 		//vars for character animation
 		var cSPost = $("#charAnime").position().left;		
-		// var gifImgs = [8, 1, 2, 3, 4, 5, 6, 7];
-		var imgsF = [-875, 0, -125, -250, -375, -500, -625, -750];
-		var imgsB = [-1875, -1000, -1125, -1250, -1375, -1500, -1625, -1750];
-		var numOfImgs = imgsF.length;
-		var charSpeed = 3;
-		var distance = numOfImgs * charSpeed;
-		var changeMod = cSPost % distance;
+		
+		var imgsF = [-875, 0, -125, -250, -375, -500, -625, -750],
+		    imgsB = [-1875, -1000, -1125, -1250, -1375, -1500, -1625, -1750],
+			numOfImgs = imgsF.length,
+			charSpeed = 3,
+			distance = numOfImgs * charSpeed,
+			changeMod = cSPost % distance;
 		//end of vars for character animation
 
 		function characterFaceForward() {		
@@ -24,7 +25,7 @@ $(function(){
 			for (i = 0; i < numOfImgs; i++) {
 				var remainN = charSpeed * i;
 				if (changeMod == remainN) {
-					// $("#character").attr("src","images/walk/"+gifImgs[i]+".png");
+					
 					$("#character").css({"background-position":imgsF[i]+"px"});
 				}
 			}
@@ -36,18 +37,25 @@ $(function(){
 			for (i = 0; i < numOfImgs; i++) {
 				var remainN = charSpeed * i;
 				if (changeMod == remainN) {
-					// $("#character").attr("src","images/walk/"+gifImgs[i]+"fl.png");
+					
 					$("#character").css({"background-position":imgsB[i]+"px"});
 				}
 			}
 		}
 
 		function characterJump() {
-			$("#character").stop().animate({bottom:"105px"}, 80, fallDown);
+			if (!upKeyPressed) {
+				$("#character").stop(true).animate({bottom:"140px"}, 160, fallDown);
+				upKeyPressed = true;
+			}
 		}
 
 		function fallDown() {
-			$("#character").stop(true, true).animate({bottom:"50px"}, 75);
+			$("#character").stop(true, true).animate({bottom:"50px"}, 150);
+			setTimeout(function() {
+         		upKeyPressed = false;
+         		console.log(upKeyPressed);
+      		}, 700);
 		}
 
 		var characterPost = $("#character").position().left;
@@ -77,11 +85,11 @@ $(function(){
 		} else {
 
 			var vidBgPost = $("#vidBg").position().left;
-			var mountPost = $("#mountains").position().left;
-			housePost = $("#houses").position().left;
-			var treePost = $("#trees").position().left;
-			var grassPost = $("#grass").position().left;
-			var groundPost = $("#ground").position().left;
+				mountPost = $("#mountains").position().left;
+				housePost = $("#houses").position().left;
+			var treePost = $("#trees").position().left,
+				grassPost = $("#grass").position().left,
+				groundPost = $("#ground").position().left;
 
 			function moveForward() {
 				$("#vidBg").css({"left":"-=0.3"});
@@ -139,7 +147,6 @@ $(function(){
 
 						$("#ground").css({"left":"-2240"});
 						//character
-						// $("#character").attr("src","images/walk/7.png");
 						$("#character").css({"background-position":"-750px"});
 
 						if (housePost == -960) {
@@ -194,7 +201,8 @@ $(function(){
 				}
 			} 
 		}
-		console.log(characterPost, housePost, groundPost, mountPost, changeMod, vidBgPost);
+		//for debug
+		//console.log(characterPost, housePost, groundPost, mountPost, changeMod, vidBgPost);
 		
 	} //end of sthMove function
 	

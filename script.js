@@ -85,11 +85,11 @@ $(function(){
 		} else {
 
 			var vidBgPost = $("#vidBg").position().left;
-				mountPost = $("#mountains").position().left;
-				housePost = $("#houses").position().left;
-			var treePost = $("#trees").position().left,
-				grassPost = $("#grass").position().left,
-				groundPost = $("#ground").position().left;
+			var mountPost = $("#mountains").position().left;
+			housePost = $("#houses").position().left;
+			var treePost = $("#trees").position().left;
+			var grassPost = $("#grass").position().left;
+			var groundPost = $("#ground").position().left;
 
 			function moveForward() {
 				$("#vidBg").css({"left":"-=0.3"});
@@ -201,8 +201,7 @@ $(function(){
 				}
 			} 
 		}
-		//for debug
-		//console.log(characterPost, housePost, groundPost, mountPost, changeMod, vidBgPost);
+		console.log(characterPost, housePost, groundPost, mountPost, changeMod, vidBgPost);
 		
 	} //end of sthMove function
 	

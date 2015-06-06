@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
 
 
 	var housePost,
@@ -54,7 +54,6 @@ $(function(){
 			$("#character").stop(true, true).animate({bottom:"50px"}, 150);
 			setTimeout(function() {
          		upKeyPressed = false;
-         		console.log(upKeyPressed);
       		}, 700);
 		}
 
@@ -224,8 +223,6 @@ $(function(){
 
 		$("#result").text("");
 		setTimeout(randomChance, 150);
-
-		console.log(howOpt);
 	}
 
 	function randomChance() {
@@ -235,50 +232,28 @@ $(function(){
 		if (howOpt < 34) {
 
 			if (n>=80) {
-
 				$("#result").text("Yes.");
-
 			} else if (n<80 && n>=60) {
-
 				$("#result").text("Maybe (50% chance yes and 50% chance no).");
-
 			} else {
-
 				$("#result").text("No.");
-
 			}
 		} else if (howOpt >= 34 && howOpt <= 68) {
-
 			if (n>=70) {
-
 				$("#result").text("Yes.");
-
 			} else if (n<70 && n>30) {
-
 				$("#result").text("Maybe (50% chance yes and 50% chance no).");
-
 			} else {
-
 				$("#result").text("No.");
-
 			}
-
 		} else {
-
 			if (n>=50) {
-
 				$("#result").text("Yes.");
-
 			} else if (n<50 && n>=25) {
-
 				$("#result").text("Maybe (50% chance yes and 50% chance no).");
-
 			} else {
-
 				$("#result").text("No.");
-
 			}
-
 		}
 	}
 	// ends of fortune panel

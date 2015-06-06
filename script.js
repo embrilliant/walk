@@ -54,7 +54,7 @@ $(function() {
 			$("#character").stop(true, true).animate({bottom:"50px"}, 150);
 			setTimeout(function() {
          		upKeyPressed = false;
-      		}, 700);
+      		}, 600);
 		}
 
 		var characterPost = $("#character").position().left;
